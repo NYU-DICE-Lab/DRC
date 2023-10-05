@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3PR2Y1TQ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XB3PR2Y1TQ');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Distributionally Robust Classification on a Data Budget</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta property="og:site_name" content="Distributionally Robust Classification on a Data Budget" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="Distributionally Robust Classification on a Data Budget" />
+    <meta property="og:description" content="Distributionally Robust Classification on a Data Budget" />
+    <meta property="og:url" content="https://nyu-dice-lab.github.io/DRC/" />
+    <!-- <meta property="og:image" content="/ZeroForge/docs/assets/figure3.pdf" /> -->
+
+    <meta property="article:publisher" content="https://nyu-dice-lab.github.io/DRC/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Distributionally Robust Classification on a Data Budget" />
+    <meta name="twitter:description" content="We provide new, data-driven strategies for training robust computer vision models when data is limited" />
+    <!-- <meta name="twitter:url" content="/ZeroForge/docs/assets/figure3.pdf" />
+    <meta name="twitter:image" content="/ZeroForge/docs/assets/figure3.pdf" /> -->
+    <!-- <meta name="twitter:site" content="" /> -->
+
+    <!-- <script src="assets/js/video_comparison.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script> -->
+    <style>
+        .banner {
+        display: flex;
+        justify-content: center; /* Center the banner horizontally */
+        }
+
+        .gif-banner {
+        display: flex; /* Use flexbox to align items horizontally */
+        align-items: center; /* Center the GIFs vertically */
+        gap: -5px; /* Remove the whitespace between GIFs */
+        }
+        
+        .gif-banner img {
+        flex-shrink: 0; /* Prevent the GIFs from shrinking further */
+        width: auto; /* Allow the GIFs to scale proportionally */
+        height: 160px; /* Adjust the height as needed */
+        }
+
+        .gif-caption {
+        text-align: center;
+        margin-top: 5px; /* Adjust the spacing between the GIF and the caption */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="highlight-clean" style="padding-bottom: 10px;">
+        <div class="container" style="max-width: 768px;">
+            <h1 class="text-center">Distributionally Robust Classification on a Data Budget</h1>
+        </div>
+        <div class="container" style="max-width: 768px;">
+            <div class="row authors">
+                <div class="col-sm-4">
+                    <h5 class="text-center"><a class="text-center" href="https://penfever.github.io/">Benjamin Feuer</a></h5>
+                    <h6 class="text-center">New York University</h6>
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="text-center"><a class="text-center" href="https://ameya005.github.io/">Ameya Joshi</a></h5>
+                    <h6 class="text-center">New York University</h6>
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="text-center"><a class="text-center" a href="https://www.mnpham.com/">Minh Pham</a></h5>
+                    <h6 class="text-center">New York University</h6>
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="text-center"><a class="text-center" a href="https://chinmayhegde.github.io/">Chinmay Hegde</a></h5>
+                    <h6 class="text-center">New York University</h6>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div class="buttons" style="margin-bottom: 8px;">
+                <a class="btn btn-light" role="button" href="https://arxiv.org/abs/2308.03821" target="_blank">
+                    <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z"></path>
+                    </svg>Paper
+                </a>
+                <a class="btn btn-light" role="button" href="https://github.com/penfever/vlhub">
+                    <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path>
+                    </svg>
+                    Code
+                </a>
+                <a class="btn btn-light" role="button" href="https://huggingface.co/datasets/penfever/JANuS_dataset">
+                    <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path>
+                    </svg>
+                    Dataset
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Abstract</h2>
+                <p>
+                    <!-- <strong> -->
+                        Real world uses of deep learning require predictable model behavior under distribution shifts. Models such as CLIP show emergent natural distributional robustness comparable to humans, but may require hundreds of millions of training samples. Can we train robust learners in a domain where data is limited? To rigorously address this question, we introduce JANuS (Joint Annotations and Names Set), a collection of four new training datasets with images, labels, and corresponding captions, and perform a series of carefully controlled investigations of factors contributing to robustness in image classification, then compare those results to findings derived from a large-scale meta-analysis. Using this approach, we show that standard ResNet-50 trained with the cross-entropy loss on 2.4 million image samples can attain comparable robustness to a CLIP ResNet-50 trained on 400 million samples. To our knowledge, this is the first result showing (near) state-of-the-art distributional robustness on limited data budgets.
+                    <!-- </strong> -->
+                </p>
+            </div>
+        </div>
+       
+    </div>
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div style="display: flex; justify-content: center;">
+                <img src="/DRC/docs/assets/headline.png" alt="Headline Figure" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+    
+   
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>What is distributional robustness?</h2>
+                <p>
+                    A distribution shift occurs when test data differs from training data. Real world uses of deep image classifiers require predictable model behavior under such shifts. Unfortunately, almost all “standard” image classification models perform significantly worse under natural shifts (Hendrycks & Dietterich, 2019; Miller et al., 2021), in contrast with human vision (Recht et al., 2019).
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>How do we evaluate distributional robustness?</h2>
+                <p>
+                    Our work focuses on image classification, where the goal is to predict a label from a fixed set of labels given an image, with data budgets ranging from 7,500 to 2.4 million images.<br><br> We consider two different experimental settings; in our first setting, models were trained from scratch on a new dataset, <a href="https://huggingface.co/datasets/penfever/JANuS_dataset">JANuS</a> (Joint Annotations and Names Dataset), which we designed specifically for the purpose of conducting controlled comparisons on a data budget.<br><br> In the second setting, we evaluated a suite of over 650 pretrained models from the <a href="https://github.com/huggingface/pytorch-image-models">timm</a> library. We attempt to answer the following:
+                    <li><b>Q1:</b> Are models trained on <b>more samples</b> more robust than models trained on <b>fewer samples</b>?</li>
+                    <li><b>Q2:</b> Are models with <b>more parameters</b> more robust than models with <b>fewer parameters</b>?</li>
+                    <li><b>Q3:</b> Are <b>vision-language-loss</b> models more robust than <b>cross-entropy-loss</b> models?</li>
+                    <li><b>Q4:</b> Are <b>vision transformers</b> more robust than <b>convolution-based models</b>?</li>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Are models trained on <b>more samples</b> more robust than models trained on <b>fewer samples</b>?</h2>
+                <p>
+                    <b>Yes</b>. The evidence for this is strong and consistent, and it is the single largest contributor to distributional robustness. However, the relationship is not linear; the marginal benefit of additional samples decreases as the number of samples increases; this makes increasing the number of samples a sub-optimal choice when operating on a data budget.
+                </p>
+                <h2>Are models with <b>more parameters</b> more robust than models with <b>fewer parameters</b>?</h2>
+                <p>
+                    <b>Yes</b>, up to a point. The datasets we evaluate seem to reach a model saturation point; beyond this point, adding more parameters does not contribute additional robustness. 
+                </p>
+                <div style="display: flex; justify-content: center;">
+                    <figure>
+                        <img src="/DRC/docs/assets/param-scaling.png" alt="Parameter count scaling" style="max-width: 100%; height: auto;">
+                        <figcaption style="text-align: center;"><b>(L) Effects of scaling parameter count (Approach 1). (R) Effects of scaling parameter count (Approach 2). </b>(L) We find that increasing the parameter count has a positive effect on average robustness, but the effect is limited on small data budgets, and can invert when data is very limited. (R) When we compare the average robustness of models in the study by their parameter count using approach 2, we see reliable improvements as model size increases; larger models are more robust on all label sets. Image best viewed in color.</figcaption>
+                    </figure>
+                </div>
+                <h2>Are <b>vision-language-loss</b> models more robust than <b>cross-entropy-loss</b> models?</h2>
+                <p>
+                    Surprisingly, the answer to this is <b>no</b>. Despite the fact that <a href="https://openai.com/research/clip">CLIP</a>, and other models like them, are trained on 400 million images, and report very high robustness scores, they are no more robust than a ResNet-50 trained on 2.4 million images on standard ImageNet distribution shifts.
+                </p>
+                <div style="display: flex; justify-content: center;">
+                    <figure>
+                        <img src="/DRC/docs/assets/vl-scaling.png" alt="Vision-language scaling" style="max-width: 100%; height: auto;">
+                        <figcaption style="text-align: center;"><b>(L) Under a data budget, standard CE-loss models outperform VL-loss models in both accuracy and robustness. (R) For most evaluation metrics, this effect continues in ultra-high data regimes. </b>(L) We train ResNet-50 models using both CE-loss and VL-loss across a wide range of data scales, and find that accuracy of VL-loss and CE-loss models is extremely similar at small scales. For scaling 4X and above, CE-loss models exhibit superior robustness; the CE-loss model trained on just 2.4 Mn JANuS samples has comparable robustness, as well as comparable accuracy, to the CLIP ResNet-50 trained on 400 Mn samples. (See Tab. 1 for information on the JANuS dataset, which we create and use to train these models, and Sec. 5.1 for a detailed explanation of our methods.) (R) We compare the most robust VL-loss and CE-loss models for every tier of dataset size across three different evaluation metrics. Models trained on fewer than 1.5m samples are trained exclusively on supervised data; larger models are trained on a mix of supervised and semi-supervised data. VL-loss models are more robust on IN100. CE-loss models are more robust on IN1000 and IN100-Dogs, and when less data is available.</figcaption>
+                    </figure>
+                </div>
+                <h2>Are <b>vision transformers</b> more robust than <b>convolution-based models</b>?</h2>
+                <p>
+                    <b>Yes</b>, but only on the largest data budgets, or when starting with a pretrained checkpoint that is known to be robust for your target classes and fine-tuning.
+                    <div style="display: flex; justify-content: center;">
+                        <figure>
+                            <img src="/DRC/docs/assets/arch-scaling.png" alt="Architecture scaling" style="max-width: 100%; height: auto;">
+                            <figcaption style="text-align: center;"><b>(L) Effects of architecture (Approach 1). (R) Effects of architecture (Approach 2). </b>(L) We compare average robustness of a ViT-S-16 and a ResNet-50 on JANuS, using a range of data scales, and find that the ViT underperforms the ResNet throughout. (R) We evaluate average robustness of models in the study when grouped by architecture, and find ViTs outperform convolution-based architectures. Individual marks on the graph represent the average robustness of the ten most robust convolution-based and transformer-based models, respectively. Trend lines follow the group average.</figcaption>
+                        </figure>
+                    </div>
+                </p>
+                <h2>Conclusions</h2>
+                <p>
+                    As computer vision models and datasets grow in size, and multimodal generative models such as OFA from Wang et al. (2022a) introduce and solve new, complex problems, the task of developing a prescriptive set of “scaling laws” for emergent distributional robustness will only increase in importance (Cherti et al., 2022). Equally important will be comparing the behavior of models on distribution shifts for datasets other than ImageNet. Finally, a comprehensive understanding of model performance on more challenging, long-tailed classification problems (such as iNaturalist) will shed more light on the robustness profile of models in the real world.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="max-width: 768px;">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-md-12">
+                <h2>Citation</h2>
+                <code>
+                    @article{
+                        feuer2023distributionally,
+                        title={Distributionally Robust Classification on a Data Budget},
+                        author={Benjamin Feuer and Ameya Joshi and Minh Pham and Chinmay Hegde},
+                        journal={Transactions on Machine Learning Research},
+                        issn={2835-8856},
+                        year={2023},
+                        url={https://openreview.net/forum?id=D5Z2E8CNsD},
+                    }
+                </code>
+            </div>
+        </div>
+</div>
+<hr class="divider" />
+
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="/assets/js/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+    <!-- Import the component -->
+</body>
+
+</html>
